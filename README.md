@@ -71,7 +71,7 @@ Inline mathematics:
 Euler's identity is $ e^{i\pi} + 1 = 0 $.
 ```
 
-e.g. 
+e.g. (works in mdserve, not in github)
 
 Euler's identity is $ e^{i\pi} + 1 = 0 $.
 
