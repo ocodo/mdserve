@@ -300,7 +300,7 @@ fn new_router(
         .route("/", get(serve_html_root))
         .route("/ws", get(websocket_handler))
         .route("/mermaid.min.js", get(serve_mermaid_js))
-        .route("/*filename", get(serve_file))
+        .route("/{*filename}", get(serve_file))
         .layer(CorsLayer::permissive())
         .with_state(state);
 
@@ -673,7 +673,7 @@ async fn handle_websocket(socket: WebSocket, state: SharedMarkdownState) {
     let send_task = tokio::spawn(async move {
         while let Ok(reload_msg) = change_rx.recv().await {
             if let Ok(json) = serde_json::to_string(&reload_msg) {
-                if sender.send(Message::Text(json)).await.is_err() {
+                if sender.send(Message::Text(json.into())).await.is_err() {
                     break;
                 }
             }
@@ -897,9 +897,8 @@ mod tests {
             TestServer::builder()
                 .http_transport()
                 .build(router)
-                .expect("Failed to create test server")
         } else {
-            TestServer::new(router).expect("Failed to create test server")
+            TestServer::new(router)
         };
 
         (server, temp_file)
@@ -934,9 +933,8 @@ mod tests {
             TestServer::builder()
                 .http_transport()
                 .build(router)
-                .expect("Failed to create test server")
         } else {
-            TestServer::new(router).expect("Failed to create test server")
+            TestServer::new(router)
         };
 
         (server, temp_dir)
@@ -1064,7 +1062,7 @@ fn main() {
         let is_directory_mode = false;
         let router = new_router(base_dir, tracked_files, is_directory_mode)
             .expect("Failed to create router");
-        let server = TestServer::new(router).expect("Failed to create test server");
+        let server = TestServer::new(router);
 
         let response = server.get("/").await;
         assert_eq!(response.status_code(), 200);
@@ -1093,7 +1091,7 @@ fn main() {
         let is_directory_mode = false;
         let router = new_router(base_dir, tracked_files, is_directory_mode)
             .expect("Failed to create router");
-        let server = TestServer::new(router).expect("Failed to create test server");
+        let server = TestServer::new(router);
 
         let response = server.get("/secret.txt").await;
         assert_eq!(response.status_code(), 404);
