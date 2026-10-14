@@ -101,7 +101,7 @@ cargo test
 
 ## Lineage
 
-This project began as a fork of jfernandez/mdserve and is now maintained independently under the `ocodo` namespace. The upstream project and this fork may diverge.
+This project began as a fork of jfernandez/mdserve and is now maintained independently under the `ocodo` namespace. The upstream project and this fork diverge.
 
 See CHANGELOG.md for the fork's development history.
 
