@@ -1,6 +1,10 @@
 # mdserve
 
-A lightweight Rust Markdown preview server with live reload, themes, Mermaid diagrams, and KaTeX math rendering.
+A lightweight Rust Markdown preview server with live reload, themes, Mermaid diagrams, and KaTeX $math$ rendering.
+
+$$
+e = mc^2
+$$
 
 `mdserve` serves Markdown files locally and renders them in your browser. Edit a file and see the updated result without manually refreshing the page.
 
@@ -29,10 +33,11 @@ To build from source:
 ```
 git clone https://github.com/ocodo/mdserve.git
 cd mdserve
-cargo build --release
+cargo install --path .
 ```
 
-The resulting executable is `target/release/mdserve`.
+The executable is installed to Cargo's binary directory, usually `~/.cargo/bin`.
+
 
 ## Usage
 
