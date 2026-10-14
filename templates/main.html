@@ -647,6 +647,22 @@
             initTheme();
             initSidebar();
             initMermaid();
+
+            // Render math in Markdown content
+            if (typeof renderMathInElement === 'function') {
+                renderMathInElement(document.getElementById('content'), {
+                    delimiters: [
+                                    { left: '$$', right: '$$', display: true },
+                                    { left: '\\[', right: '\\]', display: true },
+                                    { left: '\\(', right: '\\)', display: false }
+                                ],
+                    ignoredTags: [
+                                    'script', 'noscript', 'style', 'textarea', 'pre', 'code'
+                                 ],
+                    throwOnError: false
+                });
+            }
+
             setupLiveReload();
 
             // Modal close functionality
