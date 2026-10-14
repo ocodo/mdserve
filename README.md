@@ -1,10 +1,6 @@
 # mdserve
 
-A lightweight Rust Markdown preview server with live reload, themes, Mermaid diagrams, and KaTeX $math$ rendering.
-
-$$
-e = mc^2
-$$
+A lightweight Rust Markdown preview server with live reload, themes, Mermaid diagrams, and KaTeX math rendering.
 
 `mdserve` serves Markdown files locally and renders them in your browser. Edit a file and see the updated result without manually refreshing the page.
 
@@ -75,6 +71,10 @@ Inline mathematics:
 Euler's identity is \( e^{i\pi} + 1 = 0 \).
 ```
 
+e.g. 
+
+Euler's identity is \( e^{i\pi} + 1 = 0 \).
+
 Display mathematics:
 
 ```
@@ -82,6 +82,11 @@ $$
 \int_0^1 x^2\,dx = \frac{1}{3}
 $$
 ```
+
+$$
+\int_0^1 x^2\,dx = \frac{1}{3}
+$$
+
 
 Math is rendered in the browser using KaTeX. The current template loads KaTeX from a CDN, so an internet connection is required to download its assets.
 
