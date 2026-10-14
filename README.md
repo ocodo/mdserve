@@ -68,12 +68,12 @@ Run `mdserve --help` for available options.
 Inline mathematics:
 
 ```
-Euler's identity is \( e^{i\pi} + 1 = 0 \).
+Euler's identity is $ e^{i\pi} + 1 = 0 $.
 ```
 
 e.g. 
 
-Euler's identity is \( e^{i\pi} + 1 = 0 \).
+Euler's identity is $ e^{i\pi} + 1 = 0 $.
 
 Display mathematics:
 
