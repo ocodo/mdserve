@@ -1,14 +1,15 @@
+
 [package]
 name = "mdserve"
-version = "1.1.0"
-authors = ["Jose Fernandez <me@jrfernandez.com>"]
+version = "1.2.0"
+authors = ["jasonm23 <jasonm23@gmail.com>"]
 edition = "2021"
 rust-version = "1.82.0"
 license = "MIT"
-description = "Markdown preview server for AI coding agents"
-repository = "https://github.com/jfernandez/mdserve"
-homepage = "https://github.com/jfernandez/mdserve"
-documentation = "https://github.com/jfernandez/mdserve#readme"
+description = "Rust Markdown preview server with live reload, themes, Mermaid diagrams, and KaTeX math rendering. Fork of jfernandez/mdserve."
+repository = "https://github.com/ocodo/mdserve"
+homepage = "https://github.com/ocodo/mdserve"
+documentation = "https://github.com/ocodo/mdserve#readme"
 
 [dependencies]
 axum = { version = "0.7.9", features = ["ws"] }
